@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 namespace CurrencyQuotesCore {
     public class ExchangeRatesRepository : IExchangeRatesRepository {
         private ExchangeRates _exchangeRates;
-        private string _exchangeRatesUrl;
+        private readonly string _exchangeRatesUrl;
 
         public ExchangeRates ExchangeRates {
             get {
