@@ -36,7 +36,7 @@ namespace CurrencyQuotesCore {
         }
 
         public IEnumerable<Currency> WithFilter( string filter ) {
-            throw new NotImplementedException();
+            return string.IsNullOrEmpty( filter ) ? ExchangeRates.Currencies.Select( c => c.Value ).Where( c => c.Designation.Contains( filter ) || c.Name.Contains( filter ) ) : ExchangeRates.Currencies.Select( c => c.Value ) ;
         }
     }
 }
