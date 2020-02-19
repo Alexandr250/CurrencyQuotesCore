@@ -12,3 +12,5 @@
 /obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /obj/Debug/CurrencyQuotesCore.csprojAssemblyReference.cache
 /obj/Debug/CurrencyQuotesCore.csproj.CoreCompileInputs.cache
+/bin/Debug
+/obj/Debug

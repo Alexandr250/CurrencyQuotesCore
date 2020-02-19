@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurrencyExtensions.cs" />
     <Compile Include="Entites\Currency.cs" />
     <Compile Include="Entites\ExchangeRates.cs" />
     <Compile Include="ExchangeRatesLocalRepository.cs" />
