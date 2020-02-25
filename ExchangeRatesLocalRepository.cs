@@ -24,14 +24,18 @@ namespace CurrencyQuotesCore {
 
         public ExchangeRatesLocalRepository( FileInfo sourceFileInfo ) => SourceFileInfo = sourceFileInfo;
 
-        public void Update() {
+        public async void Update() {
             if ( SourceFileInfo != null && SourceFileInfo.Exists ) {
-                _exchangeRates = JsonConvert.DeserializeObject<ExchangeRates>( File.ReadAllText( SourceFileInfo.FullName, Encoding.UTF8 ) );
+                string json = await File.OpenText(SourceFileInfo.FullName).ReadToEndAsync();
+                _exchangeRates = JsonConvert.DeserializeObject<ExchangeRates>( json );
             }
         }
 
-        public IEnumerable<Currency> WithFilter( string filter ) {            
-            if ( !string.IsNullOrEmpty( filter ) && ExchangeRates != null )
+        public IEnumerable<Currency> WithFilter( string filter ) {
+            if (ExchangeRates == null)
+                return null;
+
+            if ( !string.IsNullOrEmpty( filter ) )
                 return ExchangeRates.Currencies.Select( c => c.Value ).Where( c => c.Designation.ToLower().Contains( filter.ToLower() ) || c.Name.ToLower().Contains( filter.ToLower() ) );
 
             return ExchangeRates.Currencies.Select( c => c.Value );
