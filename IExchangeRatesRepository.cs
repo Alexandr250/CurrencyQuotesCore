@@ -1,8 +1,8 @@
 ﻿using CurrencyQuotesCore.Entites;
-using System.Collections;
 using System.Collections.Generic;
 
-namespace CurrencyQuotesCore {
+namespace CurrencyQuotesCore
+{
     public interface IExchangeRatesRepository {
         ExchangeRates ExchangeRates { get; set; }
         void Update();

@@ -1,13 +1,11 @@
 ﻿using CurrencyQuotesCore.Entites;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CurrencyQuotesCore {
+namespace CurrencyQuotesCore
+{
     public class ExchangeRatesLocalRepository : IExchangeRatesRepository {
         private ExchangeRates _exchangeRates;
 
